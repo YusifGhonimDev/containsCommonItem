@@ -1,9 +1,10 @@
 void main() {
   List<String> array1 = ['a', 'b', 'c', 'x'];
-  List<String> array2 = ['z', 'y', 'b'];
+  List<String> array2 = ['z', 'y', 'x'];
 
   print(containsCommonItem(array1, array2));
   print(containsCommonItem2(array1, array2));
+  print(containsCommonItem3(array1, array2));
 }
 
 bool containsCommonItem(List<String> array1, List<String> array2) {
@@ -28,4 +29,10 @@ bool containsCommonItem2(List<String> array1, List<String> array2) {
     }
   }
   return false;
+}
+
+bool containsCommonItem3(List<String> array1, List<String> array2) {
+  Set<String> set1 = Set.from(array1);
+  Set<String> set2 = Set.from(array2);
+  return set1.intersection(set2).isNotEmpty;
 }
